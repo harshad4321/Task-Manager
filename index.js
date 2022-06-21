@@ -5,19 +5,17 @@ const task = require('./starter/routes/task')
 const connectDB=require('./starter/db/connect')// DB connection
 const dotenv = require("dotenv");
 require('dotenv').config()
-
+const notFound = require('./starter/middleware/not-found')
 //middleware
-
+app.use(express.static('./public'))
 
 app.use(express.json())
 
 
 //routers
-app.get('/hai',(req,res)=>{
- res.send('haii')
-})
  
 app.use('/api/v1/tasks',task)
+app.use(notFound)
 
 const PORT = process.env.PORT|| 3000;
 const start =async()=>{

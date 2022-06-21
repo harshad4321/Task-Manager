@@ -5,8 +5,10 @@
     createTask,
     getTask,
     updateTask,
-    deleteTask
-   }= require('../controllers/task')  
+    deleteTask,
+    editTask
+   }= require('../controllers/task');  
+const { update } = require('../models/task');
  
 
  router.route('/').get(getAllTasks).post(createTask)

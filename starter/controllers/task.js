@@ -4,7 +4,7 @@ const Task = require('../models/task')
 const getAllTasks = async(req,res)=>{
   try{
     const  tasks = await Task.find({})
-    res.status(200).json({tasks})
+    res.status(200).json({tasks,amount:tasks.length})
   } catch(error){
     res.status(500).json({msg:error})
 
@@ -66,13 +66,14 @@ res.status (200). json({task})
     }catch(error){
         res.status(500).json({msg:error})
     }
-    res.send('update task')
 }
+
 
 module.exports={
     getAllTasks, 
     createTask,
     getTask,
     updateTask,
-    deleteTask
+    deleteTask,
+   
 }
