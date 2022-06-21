@@ -6,7 +6,7 @@
     getTask,
     updateTask,
     deleteTask,
-    editTask
+   
    }= require('../controllers/task');  
 const { update } = require('../models/task');
  
