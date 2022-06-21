@@ -1,4 +1,4 @@
-
+const Task = require('../models/task')
 
 const getAllTasks = (req,res)=>{
     res.send('ksksk')
@@ -6,19 +6,19 @@ const getAllTasks = (req,res)=>{
 
 
 const createTask = (req,res)=>{
-    res.snd('1 st')
+  res.json(req.body)
 }
 const getTask = (req,res)=>{
-    res.snd('get task')
+    res.json({id:req.params.id})
 }
-const updateTask = (req,res)=>{
-    res.snd('update task')
+const updateTask = (req,res)=>{  
+    res.send('update task')
 }
-const deleteTask = (req,res)=>{
-    res.snd('delete task')
+const deleteTask = (req,res)=>{ 
+    res.send('delete task')
 }
 module.exports={
-    getAllTasks,
+    getAllTasks, 
     createTask,
     getTask,
     updateTask,

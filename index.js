@@ -1,8 +1,14 @@
+
 const express = require('express');
 const app = express();
 const task = require('./starter/routes/task')
+const connectDB=require('./starter/db/connect')// DB connection
+// const dotenv = require("dotenv");
+require('dotenv').config()
 
 //middleware
+
+
 app.use(express.json())
 
 
@@ -11,11 +17,20 @@ app.get('/hai',(req,res)=>{
  res.send('haii')
 })
  
-app.use('/',task)
+app.use('/api/v1/tasks',task)
 
-const PORT = process.env.PORT|| 3000;
-
+const PORT =  3000;
+const start =async()=>{
+    try{   
+await connectDB(process.env.MONGO_URI)
 // server.listen(3000);
 app.listen(PORT,()=>{
-    console .log(`server is connected to port ${(PORT)}.`);
-})  
+    console .log(`server  is connected to port ${(PORT)}...`);  
+})   
+    }catch(error){
+       console.log(error); 
+    }
+}
+start()
+
+
