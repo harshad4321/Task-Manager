@@ -10,7 +10,7 @@
    }= require('../controllers/task');  
 const { update } = require('../models/task');
  
-
+//Home page>>>
  router.route('/').get(getAllTasks).post(createTask)
  router.route('/:id').get(getTask).patch(updateTask).delete(deleteTask)
  

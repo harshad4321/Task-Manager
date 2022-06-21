@@ -1,21 +1,22 @@
 
 const express = require('express');
 const app = express();
+var path = require('path');
 const task = require('./starter/routes/task')
 const connectDB=require('./starter/db/connect')// DB connection
-const dotenv = require("dotenv");
+
 require('dotenv').config()
 const notFound = require('./starter/middleware/not-found')
 const errorHandlerMiddleware = require('./starter/middleware/error-handler')
 //middleware
-app.use(express.static('./public'))
+app.use(express.static(path.join('./starter/public')))
 
 app.use(express.json())
 
 
 //routers
  
-app.use('/api/v1/tasks',task)
+app.use('/',task)
 app.use(notFound)
 app.use(errorHandlerMiddleware)
 
