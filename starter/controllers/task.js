@@ -2,7 +2,7 @@ const task = require('../models/task')
 const Task = require('../models/task')
 const asyncWrapper = require('../middleware/async')
 const {createCustomError}= require('../errors/custom-error')
-// grt all task
+// get all task
 
 const getAllTasks =asyncWrapper( async(req,res)=>{
     const  tasks = await Task.find({})
@@ -32,7 +32,7 @@ const getTask = asyncWrapper(async(req,res,next)=>{
 
 //delete task
 
-const deleteTask =asyncWrapper( async(req,res)=>{ 
+const deleteTask =asyncWrapper( async(req,res,next)=>{ 
   
         const{id:taskID}= req.params;
         const task = await Task.findOneAndDelete({_id:taskID});
@@ -45,7 +45,7 @@ const deleteTask =asyncWrapper( async(req,res)=>{
 
 //update task
 
-const updateTask = asyncWrapper(async(req,res)=>{  
+const updateTask = asyncWrapper(async(req,res,next)=>{  
   
         const{id:taskID}= req.params;
 const task = await task.findOneAndUpdate({_id:taskID},req.body,{

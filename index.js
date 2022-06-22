@@ -16,7 +16,7 @@ app.use(express.json())
 
 //routers
  
-app.use('/',task)
+app.use('/api/v1/tasks',task)
 app.use(notFound)
 app.use(errorHandlerMiddleware)
 
