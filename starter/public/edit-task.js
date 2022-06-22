@@ -1,6 +1,6 @@
 const taskIDDOM = document.querySelector('.task-edit-id')
 const taskNameDOM = document.querySelector('.task-edit-name')
-const taskCompletedDOM = document.querySelector('.task-edit-completed')
+const taskCompletedDOM = document.querySelector('.task-completed')
 const editFormDOM = document.querySelector('.single-task-form')
 const editBtnDOM = document.querySelector('.task-edit-btn')
 const formAlertDOM = document.querySelector('.form-alert')
@@ -55,10 +55,9 @@ editFormDOM.addEventListener('submit', async (e) => {
     formAlertDOM.classList.add('text-success')
   } catch (error) {
     console.error(error)
-    
     taskNameDOM.value = tempName
     formAlertDOM.style.display = 'block'
-    formAlertDOM.innerHTML = `error, please try again...`
+    formAlertDOM.innerHTML = `error, please try again`
   }
   editBtnDOM.textContent = 'Edit'
   setTimeout(() => {
